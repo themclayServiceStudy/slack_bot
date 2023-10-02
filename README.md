@@ -18,3 +18,8 @@ xoxb?-5846047594821?-5977040764706?-xp6Js4LAHlRrWCwRBPS4ImcA
 ```
 23c5e578402d7?68f0f067aa?19f3e573a
 ```
+
+## 실행
+```
+node src/index.js
+```
