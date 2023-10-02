@@ -16,5 +16,5 @@ xoxb?-5846047594821?-5977040764706?-xp6Js4LAHlRrWCwRBPS4ImcA
 - Client Secret
     - ? 제거 후 사용
 ```
-23c5e578402d768f0f067aa19f3e573a
+23c5e578402d7?68f0f067aa?19f3e573a
 ```
