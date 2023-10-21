@@ -6,30 +6,26 @@ const { App } = require('@slack/bolt'); // https://slack.dev/bolt-js/tutorial/ge
 const express = require('express');
 const bodyParser = require('body-parser');
 
+require('dotenv').config();
+
 // 사용자는 botToken과 secret만을 정의해서 구동할 수 있게 처리 -> slack bolt의 사용 객체로 정의하기 위함
-const botToken = 'xoxb-5846047594821-5977040764706-xp6Js4LAHlRrWCwRBPS4ImcA';
-const secret = '23c5e578402d768f0f067aa19f3e573a';
+const botToken = process.env.BOT_TOKEN; // bot level token : xoxb
+const secret = process.env.SECRET; // secret
+const appToken = process.env.APP_TOKEN; // app level token : xapp -> scope 
+
+console.log(`botToken: ${botToken}, secret ${secret}`)
 
 // App 객체 정의
 const app = new App({
     token: botToken,
     signingSecret: secret,
+    socketMode: true,
+    appToken: appToken,
+    port: 3000
 });
 
-// // 이벤트 처리
-// app.message(async ({ message, say }) => {
-//     try {
-//         await say({
-//             text: message.text,
-//             channel: 'C05UAFAS2Q7'
-//         });
-//     } catch (error) {
-//         console.log('Error bot say : ', error);
-//     }
-// });
-
 // app.message(메세지 패턴, 콜백)
-app.message(':wave:', async ({ message, say }) => { // message 메소드를 통해 메세지를 들음
+app.message('hello', async ({ message, say }) => { // message 메소드를 통해 메세지를 들음
     // 콘솔에 메시지 출력
     console.log(`Received message: ${message.text} from channel: ${message.channel}`);
   
